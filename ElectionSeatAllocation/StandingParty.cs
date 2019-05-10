@@ -19,6 +19,11 @@ namespace ElectionSeatAllocation
             Quotient = Votes / (Seats + 1);
         }
 
+        public void InitialiseSeats(int initialValue)
+        {
+            Seats = initialValue;
+        }
+
 
 
     }

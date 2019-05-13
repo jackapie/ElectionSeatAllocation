@@ -12,19 +12,18 @@ namespace ElectionSeatAllocation
         public int Seats { get; set; }
 
         public decimal Quotient { get; private set; }
+
+        public StandingParty()
+        {
+            Seats = 0;
+        }
         
         
         public void SetQuotient()
         {
             Quotient = Votes / (Seats + 1);
-        }
+        }     
 
-        public void InitialiseSeats(int initialValue)
-        {
-            Seats = initialValue;
-        }
-
-
-
+        
     }
 }

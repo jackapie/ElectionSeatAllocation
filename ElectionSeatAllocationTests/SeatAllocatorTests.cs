@@ -46,5 +46,51 @@ namespace ElectionSeatAllocationTests
             //Assert
             Assert.Equal(1, actual);
         }
+
+        [Fact]
+        public void AllocateSeat2PartiesWinnersSeats()
+        {
+            //Arrange
+            var stubPartyWinner = new FakeStandingParty();
+            stubPartyWinner.Votes = 1;
+            var stubPartyLoser = new FakeStandingParty();
+            stubPartyLoser.Votes = 0;
+
+            var partyList = new List<StandingParty>();
+            partyList.Add(stubPartyWinner);
+            partyList.Add(stubPartyLoser);
+
+            var allocator = new SeatAllocator(partyList);
+
+            //Act
+            allocator.AllocateSeat();
+            var actual = stubPartyWinner.Seats;
+
+            //Assert
+            Assert.Equal(1, actual);
+        }
+
+        public void AllocateSeat2PartiesLosersSeats()
+        {
+            //Arrange
+            var stubPartyWinner = new FakeStandingParty();
+            stubPartyWinner.Votes = 1;
+            var stubPartyLoser = new FakeStandingParty();
+            stubPartyLoser.Votes = 0;
+
+            var partyList = new List<StandingParty>();
+            partyList.Add(stubPartyWinner);
+            partyList.Add(stubPartyLoser);
+
+            var allocator = new SeatAllocator(partyList);
+
+            //Act
+            allocator.AllocateSeat();
+            var actual = stubPartyLoser.Seats;
+
+            //Assert
+            Assert.Equal(0, actual);
+        }
+
     }
 }

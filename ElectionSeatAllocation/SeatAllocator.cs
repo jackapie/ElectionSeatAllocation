@@ -14,7 +14,7 @@ namespace ElectionSeatAllocation
             this.standingParties = parties;
         }
 
-        public StandingParty CalculateSeatWon()
+        private StandingParty CalculateSeatWon()
         {
             foreach(var party in standingParties)
             {
@@ -26,6 +26,12 @@ namespace ElectionSeatAllocation
                 .First();
 
             return winningParty;
+        }
+
+        public void AllocateSeat()
+        {
+            var winningParty = CalculateSeatWon();
+            winningParty.Seats += 1;
         }
     }
 }

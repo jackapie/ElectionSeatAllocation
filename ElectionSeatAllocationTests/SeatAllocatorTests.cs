@@ -8,23 +8,43 @@ namespace ElectionSeatAllocationTests
 {
     public class SeatAllocatorTests
     {
+        //[Fact]
+        //public void CalculateSeatWonTest()
+        //{
+        //    //Arrange
+        //    var mockParty = new FakeStandingParty();
+        //    mockParty.Votes = 0;
+            
+        //    var partyList = new List<StandingParty>();
+        //    partyList.Add(mockParty);
+
+        //    var calculator = new SeatAllocator(partyList);
+
+        //    //Act
+        //    var actual = calculator.CalculateSeatWon();
+
+        //    //Assert
+        //    Assert.Equal(mockParty, actual);
+        //}
+
         [Fact]
-        public void CalculateSeatWonTest()
+        public void AllocateSeat1Party()
         {
             //Arrange
-            var mockParty = new FakeStandingParty();
-            mockParty.Votes = 0;
-            
-            var partyList = new List<StandingParty>();
-            partyList.Add(mockParty);
+            var stubParty = new FakeStandingParty();
+            stubParty.Votes = 0;
 
-            var calculator = new SeatAllocator(partyList);
+            var partyList = new List<StandingParty>();
+            partyList.Add(stubParty);
+
+            var allocator = new SeatAllocator(partyList);
 
             //Act
-            var actual = calculator.CalculateSeatWon();
+            allocator.AllocateSeat();
+            var actual = stubParty.Seats;
 
             //Assert
-            Assert.Equal(mockParty, actual);
+            Assert.Equal(1, actual);
         }
     }
 }

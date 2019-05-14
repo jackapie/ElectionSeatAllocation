@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace ElectionSeatAllocationTests
 {
-    public class AllocateSeatCalculatorTests
+    public class SeatAllocatorTests
     {
         [Fact]
         public void CalculateSeatWonTest()
@@ -18,7 +18,7 @@ namespace ElectionSeatAllocationTests
             var partyList = new List<StandingParty>();
             partyList.Add(mockParty);
 
-            var calculator = new AllocateSeatCalculator(partyList);
+            var calculator = new SeatAllocator(partyList);
 
             //Act
             var actual = calculator.CalculateSeatWon();

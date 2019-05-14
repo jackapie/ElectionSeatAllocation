@@ -5,11 +5,11 @@ using System.Linq;
 
 namespace ElectionSeatAllocation
 {
-    public class AllocateSeatCalculator
+    public class SeatAllocator
     {
         readonly List<StandingParty> standingParties;
 
-        public AllocateSeatCalculator(List<StandingParty> parties)
+        public SeatAllocator(List<StandingParty> parties)
         {
             this.standingParties = parties;
         }
@@ -21,7 +21,9 @@ namespace ElectionSeatAllocation
                 party.SetQuotient();
             }
 
-            var winningParty = standingParties.OrderByDescending(e => e.Quotient).First();
+            var winningParty = standingParties
+                .OrderByDescending(e => e.Quotient)
+                .First();
 
             return winningParty;
         }

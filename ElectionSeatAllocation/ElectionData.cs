@@ -6,16 +6,16 @@ namespace ElectionSeatAllocation
 {
     public class ElectionData
     {
-        public int NumberSeatsToBeAllocated;
+        public int NumberSeatsToBeAllocated { get; private set; }
 
-        public int NumberPartiesStanding;
+        public int NumberPartiesStanding { get; private set; }
 
-        public List<StandingParty> StandingParties;
+        public List<StandingParty> StandingParties { get; private set; }
 
         void RetrieveNumberOfSeats()
         {
             var instruction = $"Enter number of seats to be allocated: ";
-
+            
             NumberSeatsToBeAllocated = GetInputNumeric(instruction);
         }
 
@@ -39,7 +39,7 @@ namespace ElectionSeatAllocation
             var instruction = $"Enter number of parties standing: ";
 
             NumberPartiesStanding = GetInputNumeric(instruction);
-
+            
         }
 
         void RetrieveName(StandingParty party)
@@ -52,7 +52,7 @@ namespace ElectionSeatAllocation
         {
             var instruction = $"Enter number of votes for {party.Name}: ";
             party.Votes = GetInputNumeric(instruction);
-
+           
         }
 
         void SetPartyData()

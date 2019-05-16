@@ -70,6 +70,7 @@ namespace ElectionSeatAllocationTests
             Assert.Equal(1, actual);
         }
 
+        [Fact]
         public void AllocateSeat2PartiesLosersSeats()
         {
             //Arrange

@@ -15,8 +15,8 @@ namespace ElectionSeatAllocationTests
             var expected = 0;
 
             //Act
-            party.SetQuotient();
-            var actual = party.Quotient;
+            var actual = party.GetQuotient();
+            
 
             //Assert
             Assert.Equal(expected, actual);

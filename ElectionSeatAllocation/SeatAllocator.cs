@@ -16,13 +16,9 @@ namespace ElectionSeatAllocation
 
         private StandingParty CalculateSeatWon()
         {
-            foreach(var party in standingParties)
-            {
-                party.SetQuotient();
-            }
-
+           
             var winningParty = standingParties
-                .OrderByDescending(e => e.Quotient)
+                .OrderByDescending(e => e.GetQuotient())
                 .First();
 
             return winningParty;
